@@ -4,13 +4,13 @@ function renderLicenseBadge(license) {
   let badge = ``;
   switch (license) {
     case 'Apache 2.0':
-      badge = `[![License]()`;
+      badge = `![License](https://img.shields.io/badge/License-Apache%202.0-brightgreen)`;
       break;
     case 'GNU GPLv3':
-      badge = `[![License: GPL v3]()`;
+      badge = `![License: GPL v3](https://img.shields.io/badge/License-GNU%20GPLv3-brightgreen)`;
       break;
     case 'MIT':
-      badge = `[![License: MIT]()`;
+      badge = `![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen)`;
       break;
     case 'None':
       badge = ''
@@ -34,6 +34,7 @@ function renderLicenseLink(license) {
     case 'None':
       link = ''
   }
+  return link;
 }
 
 // TODO: Create a function that returns the license section of README
@@ -53,12 +54,14 @@ function renderLicenseSection(license) {
 function generateMarkdown(data) {
   return `# ${data.title}
 
-  ## ${renderLicenseSection(data.license)} ${renderLicenseBadge(data.license)}
+  # ${renderLicenseSection(data.license)} ${renderLicenseBadge(data.license)}
 
+  # License Link:
   ### ${renderLicenseLink(data.license)}
 
 
-  ## Table of Contents:
+  # Table of Contents:
+
   ###  * [Installation](#installation)
   ###  * [Usage](#usage)
   ###  * [License](#license)
@@ -67,33 +70,30 @@ function generateMarkdown(data) {
   ###  * [Questions](#questions)
 
 
-  ## Installation:
+  # Installation:
   ### To install this application, you must do the following:
   ### ${data.installation}
 
 
-  ## Usage:
+  # Usage:
   ### ${data.usage}
 
 
-  ## Contributors:
+  # Contributors:
   ### ${data.contributions}
 
 
-  ## Tests:
+  # Tests:
   ### If you would like to test this application, please run the commands in the terminal:
   ### ${data.test}
 
 
-  ## Questions:
+  # Questions:
   ### If you have any further questions, you can reach me by my github or email:
 
 
-  ### Github: https://github.com/${data.github}
-
-  ### or
-
-  ### Email: ${data.email}
+  # Github: https://github.com/${data.github}
+  # Email: ${data.email}
 `;
 }
 

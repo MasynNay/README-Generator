@@ -80,7 +80,7 @@ function generateMarkdown(data) {
 
 
   # Contributors:
-  ### ${data.contributions}
+  ### ${data.contribution}
 
 
   # Tests:
